@@ -1,0 +1,36 @@
+.back-card {
+  position: relative;
+
+  display: inline-block;
+  padding: 3rem;
+  border-radius: 1rem;
+  z-index: 20;
+
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+
+  &__logo {
+    position: absolute;
+    width: 5rem;
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    margin: 1.5rem 0 0 0;
+  }
+
+  &__description {
+    margin: 1rem 0 3rem 0;
+    font-size: 1.4rem;
+  }
+
+  &__interactive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 1.5rem 0;
+  }
+}

@@ -1,0 +1,12 @@
+@import "./variables";
+.btn {
+  text-decoration: none;
+  color: white;
+  background-color: $clr-primary-1;
+  padding: 1.7rem 4rem;
+  border-radius: 3rem;
+  font-weight: 500;
+  &:hover {
+    background-color: $clr-primary-2;
+  }
+}
