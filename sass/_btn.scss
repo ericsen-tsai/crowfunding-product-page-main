@@ -9,4 +9,14 @@
   &:hover {
     background-color: $clr-primary-2;
   }
+
+  &--disabled {
+    background-color: rgba($clr-neutral-2, 0.6);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--disabled:hover {
+    background-color: rgba($clr-neutral-2, 0.6);
+  }
 }

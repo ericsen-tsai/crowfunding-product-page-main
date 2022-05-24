@@ -15,9 +15,12 @@ const Tracker = () => {
       <div className="tracker__display">
         <TrackerDetail
           description={"of $100,000 backed"}
-          amount={`$${money}`}
+          amount={`$${money.toLocaleString()}`}
         />
-        <TrackerDetail description={"total backers"} amount={backerNum} />
+        <TrackerDetail
+          description={"total backers"}
+          amount={backerNum.toLocaleString()}
+        />
         <TrackerDetail description={"days left"} amount={days} />
       </div>
       <div className="tracker__progress-bar">

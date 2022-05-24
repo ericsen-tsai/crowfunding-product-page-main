@@ -1,0 +1,89 @@
+@import "../../../sass/btn";
+@import "../../../sass/variables";
+
+.stand-card {
+  padding: 1.5rem 4rem;
+  border: 0.1rem solid rgba($clr-neutral-2, 0.4);
+  border-radius: 1rem;
+  margin-top: 2rem;
+
+  &:first-of-type {
+    margin-top: 4rem;
+  }
+
+  &__class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__minimum {
+    color: $clr-primary-1;
+    font-weight: 700;
+  }
+
+  &__description {
+    margin: 0;
+    word-spacing: 0.2rem;
+    color: $clr-neutral-2;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+
+  &__left-num {
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 1rem 0;
+  }
+
+  &__left-text {
+    font-size: 1.6rem;
+    color: $clr-neutral-2;
+  }
+
+  &--disabled {
+    border: 0.1rem solid rgba($clr-neutral-2, 0.2);
+  }
+
+  &--disabled &__title {
+    color: rgba(black, 0.6);
+  }
+
+  &--disabled &__minimum {
+    color: rgba($clr-primary-1, 0.6);
+  }
+
+  &--disabled &__description {
+    color: rgba($clr-neutral-2, 0.6);
+  }
+
+  &--disabled &__left-num {
+    color: rgba(black, 0.6);
+  }
+
+  &--disabled &__left-text {
+    color: rgba($clr-neutral-2, 0.6);
+  }
+
+  // &__minimum {
+  //   color: $clr-primary-1;
+  //   font-weight: 700;
+  // }
+
+  // &__description {
+  //   margin: 0;
+  //   word-spacing: 0.2rem;
+  //   color: $clr-neutral-2;
+  // }
+}
