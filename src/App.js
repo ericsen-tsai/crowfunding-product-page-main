@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Hero from "./components/Hero/Hero"
 import BackCard from "./components/BackCard/BackCard"
@@ -9,13 +9,14 @@ import Popup from "./components/Popup/Popup"
 import "./App.scss"
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="App">
       <Hero />
-      <BackCard />
+      <BackCard handlePopup={setIsOpen} />
       <Tracker />
       <Stand />
-      <Popup />
+      {isOpen && <Popup handlePopup={setIsOpen} />}
     </div>
   )
 }

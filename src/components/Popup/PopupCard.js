@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import "./PopupCard.scss"
 
@@ -9,7 +9,15 @@ const PopupCard = ({
   minimum,
   isDisabled,
   isOpen,
+  setIsFinish,
 }) => {
+  const [pledgeAmount, setPledgeAmount] = useState(Number(minimum))
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsFinish(true)
+  }
+
   title = title ? `${title} Stand` : "Pledge with no reward"
 
   return (
@@ -50,21 +58,28 @@ const PopupCard = ({
       </div>
       {isOpen && (
         <div className="popup__card-pledge">
-          <h3 className="popup__card-pledge-text">Enter your pledge</h3>
-          <div className="popup__card-pledge-execution">
+          <h3 className="popup__card-pledge-text">
+            {minimum ? "Enter your pledge" : ""}
+          </h3>
+          <form
+            className="popup__card-pledge-execution"
+            onSubmit={handleSubmit}
+          >
             {minimum && (
               <>
                 <span className="popup__card-pledge-sign">$</span>
                 <input
                   type="text"
                   min={minimum}
-                  defaultValue={minimum}
+                  // defaultValue={minimum}
+                  value={pledgeAmount}
+                  onChange={(e) => setPledgeAmount(e.target.value)}
                   className="popup__card-pledge-input"
                 />
               </>
             )}
             <button className="btn">Continue</button>
-          </div>
+          </form>
         </div>
       )}
     </div>

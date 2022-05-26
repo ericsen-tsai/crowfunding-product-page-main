@@ -8,7 +8,7 @@ const Tracker = () => {
   const [money, setMoney] = useState(89914)
   const [backerNum, setBackerNum] = useState(5007)
   const [days, setDays] = useState(56)
-  const [percentage, setPercentage] = useState(50)
+  const [percentage, setPercentage] = useState(money / 1000)
 
   return (
     <div className="tracker">

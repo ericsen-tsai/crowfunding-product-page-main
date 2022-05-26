@@ -6,7 +6,7 @@ import Bookmark from "./Bookmark"
 import LogoMasterCraft from "../../images/logo-mastercraft.svg"
 import "./BackCard.scss"
 
-const BackCard = () => {
+const BackCard = ({ handlePopup }) => {
   return (
     <div className="back-card">
       <img
@@ -19,7 +19,7 @@ const BackCard = () => {
         A beautiful & handcrafted monitor stand to reduce neck and eye strain.
       </p>
       <div className="back-card__interactive">
-        <BackCardBtn />
+        <BackCardBtn handlePopup={handlePopup} />
         <Bookmark />
       </div>
     </div>
