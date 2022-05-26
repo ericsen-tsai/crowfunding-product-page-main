@@ -1,0 +1,46 @@
+@import "../../../sass/variables";
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($clr-neutral-2, 0.6);
+  z-index: 50;
+
+  &__content {
+    width: 40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  &__close-icon {
+    position: absolute;
+    display: inline-block;
+    top: 3rem;
+    right: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-image: url(../../images/icon-close-modal.svg);
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    padding: 0 1rem;
+  }
+
+  &__description {
+    font-size: 1.5rem;
+    color: $clr-neutral-2;
+    padding: 0 1rem;
+  }
+}

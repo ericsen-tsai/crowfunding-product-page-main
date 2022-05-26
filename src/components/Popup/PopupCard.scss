@@ -1,0 +1,137 @@
+@import "../../../sass/radio-btn";
+@import "../../../sass/btn";
+@import "../../../sass/variables";
+
+.popup {
+  &__card {
+    padding: 1rem;
+    border: 0.1rem solid rgba($clr-neutral-2, 0.4);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__card-info {
+    font-size: 1.6rem;
+  }
+
+  &__card-description {
+    font-size: 1.2rem;
+    color: $clr-neutral-2;
+  }
+
+  &__card-title {
+    cursor: pointer;
+  }
+  &__card-title:hover {
+    color: $clr-primary-1;
+  }
+  &__card-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    & > * {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__card-data {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+
+    & > * {
+      margin-top: 0rem;
+      margin-bottom: 0rem;
+      display: inline-block;
+    }
+  }
+
+  &__card-pledge {
+    border-top: 0.1rem solid $clr-neutral-2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__card-pledge-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $clr-neutral-2;
+  }
+
+  &__card-pledge-input {
+    width: 5rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    text-align: center;
+    font-family: "Commissioner", sans-serif;
+    border: 0.1rem solid black;
+  }
+
+  &__card-pledge-execution {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__card-pledge-sign {
+    position: absolute;
+    font-size: 1.2rem;
+    color: $clr-neutral-2;
+    top: 1.2rem;
+    left: 1.6rem;
+  }
+
+  &__card-pledge-input:focus {
+    border: 0.1rem solid $clr-primary-1;
+    outline: none;
+  }
+
+  &__card-minimum {
+    color: $clr-primary-1;
+  }
+
+  &__card-left-text {
+    color: $clr-neutral-2;
+    font-size: 1.2rem;
+  }
+
+  &__card--disabled {
+    border: 0.1rem solid rgba($clr-neutral-2, 0.2);
+  }
+
+  &__card--disabled &__card-title {
+    color: rgba(black, 0.6);
+    cursor: default;
+  }
+
+  &__card--disabled &__card-minimum {
+    color: rgba($clr-primary-1, 0.6);
+  }
+
+  &__card--disabled &__card-description {
+    color: rgba($clr-neutral-2, 0.6);
+  }
+
+  &__card--disabled &__card-left {
+    color: rgba(black, 0.6);
+  }
+
+  &__card--disabled &__card-left-text {
+    color: rgba($clr-neutral-2, 0.6);
+  }
+
+  &__card .btn {
+    padding: 1.2rem;
+    border: none;
+    font-size: 1.2rem;
+    font-family: "Commissioner", sans-serif;
+    cursor: pointer;
+  }
+}
