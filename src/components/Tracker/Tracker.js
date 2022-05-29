@@ -1,25 +1,34 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 
 import TrackerDetail from "./TrackerDetail"
+import {
+  selectTotalAmount,
+  selectTotalBacker,
+} from "../../features/trackerSlice"
 
 import "./Tracker.scss"
 
 const Tracker = () => {
-  const [money, setMoney] = useState(89914)
-  const [backerNum, setBackerNum] = useState(5007)
+  const totalAmount = useSelector(selectTotalAmount)
+  const totalBacker = useSelector(selectTotalBacker)
   const [days, setDays] = useState(56)
-  const [percentage, setPercentage] = useState(money / 1000)
+  const [percentage, setPercentage] = useState(0)
+
+  useEffect(() => {
+    setPercentage(totalAmount / 1000)
+  }, [totalAmount])
 
   return (
     <div className="tracker">
       <div className="tracker__display">
         <TrackerDetail
           description={"of $100,000 backed"}
-          amount={`$${money.toLocaleString()}`}
+          amount={`$${totalAmount.toLocaleString()}`}
         />
         <TrackerDetail
           description={"total backers"}
-          amount={backerNum.toLocaleString()}
+          amount={totalBacker.toLocaleString()}
         />
         <TrackerDetail description={"days left"} amount={days} />
       </div>

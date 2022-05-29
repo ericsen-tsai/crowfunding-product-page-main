@@ -1,11 +1,16 @@
 @import "../../../sass/btn";
 @import "../../../sass/variables";
+@import "../../../sass/mixins";
 
 .stand-card {
   padding: 1.5rem 4rem;
   border: 0.1rem solid rgba($clr-neutral-2, 0.4);
   border-radius: 1rem;
   margin-top: 2rem;
+
+  @include respond(phone) {
+    padding: 1.5rem 2rem;
+  }
 
   &:first-of-type {
     margin-top: 4rem;
@@ -15,6 +20,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__minimum {
@@ -32,6 +41,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include respond(phone) {
+      width: 90%;
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__left {
@@ -39,6 +54,10 @@
     align-items: center;
     gap: 1rem;
     margin: 2.5rem 0;
+
+    @include respond(phone) {
+      margin: 1rem 0;
+    }
   }
 
   &__left-num {

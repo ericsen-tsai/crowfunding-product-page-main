@@ -1,4 +1,6 @@
 @import "../../../sass/variables";
+@import "../../../sass/mixins";
+
 .tracker {
   display: inline-block;
   background-color: white;
@@ -7,16 +9,36 @@
     display: flex;
     justify-content: left;
     align-items: center;
+    @include respond(phone) {
+      flex-direction: column;
+      text-align: center;
+    }
   }
+
   &__display-title {
     margin: 3rem 0;
-    padding: 0 3rem;
+    // padding: 0 3rem;
+
+    @include respond(phone) {
+      padding: 2rem 0;
+      width: 50%;
+      margin: 0;
+    }
+
     &:not(:first-child) {
       border-left: 0.1rem solid rgba($clr-neutral-2, 0.4);
+
+      @include respond(phone) {
+        border-left: none;
+        border-top: 0.1rem solid rgba($clr-neutral-2, 0.4);
+      }
     }
 
     &:not(:last-child) {
       padding-right: 5rem;
+      @include respond(phone) {
+        padding-right: 0;
+      }
     }
   }
 

@@ -1,4 +1,5 @@
 @import "../../../sass/variables";
+@import "../../../sass/mixins";
 
 .popup {
   position: fixed;
@@ -19,6 +20,10 @@
     background-color: white;
     padding: 1.5rem;
     border-radius: 1rem;
+
+    @include respond(phone) {
+      width: 90%;
+    }
   }
 
   &__close-icon {

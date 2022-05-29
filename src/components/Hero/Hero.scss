@@ -1,3 +1,5 @@
+@import "../../../sass/mixins";
+
 .hero {
   position: absolute;
   top: 0;
@@ -9,15 +11,42 @@
   background-repeat: no-repeat;
   background-size: contain;
 
+  @include respond(phone) {
+    height: 25%;
+    background-image: url(../../images/image-hero-mobile.jpg);
+    background-size: 100%;
+  }
+
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 15rem;
+
+    @include respond(phone) {
+      padding: 3rem 2rem;
+    }
   }
 
   &__logo {
     width: 12rem;
     height: auto;
+  }
+
+  &__hamburger {
+    display: none;
+    background-image: url(../../images/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+
+    &--close {
+      background-image: url(../../images/icon-close-menu.svg);
+    }
+
+    @include respond(phone) {
+      display: inline-block;
+    }
   }
 }

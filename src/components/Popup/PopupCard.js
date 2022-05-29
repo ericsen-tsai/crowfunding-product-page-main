@@ -1,6 +1,12 @@
 import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 
 import "./PopupCard.scss"
+import {
+  addAmount,
+  addBacker,
+  decreasePlanLeft,
+} from "../../features/trackerSlice"
 
 const PopupCard = ({
   title,
@@ -11,10 +17,19 @@ const PopupCard = ({
   isOpen,
   setIsFinish,
 }) => {
-  const [pledgeAmount, setPledgeAmount] = useState(Number(minimum))
+  const dispatch = useDispatch()
+
+  const [pledgeAmount, setPledgeAmount] = useState(
+    Number(minimum ? minimum : 0)
+  )
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    dispatch(addAmount(pledgeAmount))
+    dispatch(addBacker())
+    if (isOpen) {
+      dispatch(decreasePlanLeft(title))
+    }
     setIsFinish(true)
   }
 

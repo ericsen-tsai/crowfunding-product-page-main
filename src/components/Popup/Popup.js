@@ -1,7 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 
 import PopupCard from "./PopupCard"
 import FinishIcon from "../../images/icon-check.svg"
+import { selectPlansLeft } from "../../features/trackerSlice"
 
 import "./Popup.scss"
 
@@ -13,6 +15,22 @@ const plans = [
 ]
 
 const Popup = ({ handlePopup }) => {
+  const [bambooPlanLeft, setBambooPlanLeft] = useState(0)
+  const [blackPlanLeft, setBlackPlanLeft] = useState(0)
+  const [mahoganyPlanLeft, setMahoganyPlanLeft] = useState(0)
+
+  const plansLeft = useSelector(selectPlansLeft)
+
+  useEffect(() => {
+    setBambooPlanLeft(plansLeft["Bamboo Stand"])
+    setBlackPlanLeft(plansLeft["Black Edition Stand"])
+    setMahoganyPlanLeft(plansLeft["Mahogany Special Stand"])
+  }, [
+    plansLeft["Bamboo Stand"],
+    plansLeft["Black Edition Stand"],
+    plansLeft["Mahogany Special Stand"],
+  ])
+
   const [openPlansInput, setOpenPlansInput] = useState([
     false,
     false,
@@ -22,13 +40,9 @@ const Popup = ({ handlePopup }) => {
   const [isFinish, setIsFinish] = useState(false)
 
   const handleChange = (e) => {
-    console.log(e.target)
     if (!e.target.id) return
     setOpenPlansInput(plans.map((plan) => plan === e.target.id))
   }
-
-  // console.log(openPlansInput)
-  console.log(isFinish)
 
   return (
     <div className="popup" onChange={(e) => handleChange(e)}>
@@ -50,9 +64,9 @@ const Popup = ({ handlePopup }) => {
             title="Bamboo"
             description="You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
   you’ll be added to a special Backer member list."
-            left="101"
+            left={bambooPlanLeft}
             minimum="25"
-            isDisabled={false}
+            isDisabled={bambooPlanLeft === 0}
             isOpen={openPlansInput[1]}
             setIsFinish={setIsFinish}
           />
@@ -60,9 +74,9 @@ const Popup = ({ handlePopup }) => {
             title="Black Edition"
             description="You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer 
           member list. Shipping is included."
-            left="64"
+            left={blackPlanLeft}
             minimum="75"
-            isDisabled={false}
+            isDisabled={blackPlanLeft === 0}
             isOpen={openPlansInput[2]}
             setIsFinish={setIsFinish}
           />
@@ -70,9 +84,9 @@ const Popup = ({ handlePopup }) => {
             title="Mahogany Special"
             description="You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added 
           to our Backer member list. Shipping is included."
-            left="0"
+            left={mahoganyPlanLeft}
             minimum="200"
-            isDisabled={true}
+            isDisabled={mahoganyPlanLeft === 0}
             isOpen={openPlansInput[3]}
             setIsFinish={setIsFinish}
           />

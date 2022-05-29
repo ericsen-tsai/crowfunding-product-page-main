@@ -1,11 +1,33 @@
 @import "../../../sass/variables";
+@import "../../../sass/mixins";
 
 .navbar {
   list-style: none;
   margin: 0;
 
+  @include respond(phone) {
+    position: fixed;
+    top: 20%;
+    left: 51%;
+    width: 65.5%;
+    transform: translate(-70%, -50%);
+    background-color: white;
+    padding: 0.5rem;
+    z-index: 300;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.1rem black;
+  }
+
   &__list {
     display: inline-block;
+
+    @include respond(phone) {
+      display: block;
+      padding: 2rem 0;
+      &:not(:last-child) {
+        border-bottom: 0.1rem rgba($color: rgb(0, 0, 0), $alpha: 0.1) solid;
+      }
+    }
   }
 
   &__link {
@@ -13,5 +35,11 @@
     text-decoration: none;
     color: white;
     margin: 0 2rem;
+
+    @include respond(phone) {
+      color: black;
+      font-size: 2rem;
+      font-weight: 500;
+    }
   }
 }

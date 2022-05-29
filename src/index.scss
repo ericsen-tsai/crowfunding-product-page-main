@@ -1,5 +1,6 @@
+@import "../sass/mixins";
 *,
-**,
+* *,
 **::after,
 **::before {
   box-sizing: border-box;
@@ -13,6 +14,10 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgb(246, 242, 242);
+
+  @include respond(phone) {
+    width: 100%;
+  }
 }
 
 #root {
